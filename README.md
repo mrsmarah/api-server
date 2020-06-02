@@ -9,7 +9,7 @@
 ### Links and Resources
 
 - [submission swaggerHub](https://app.swaggerhub.com/apis/mrsmarah/lab06/0.1)
-- [submission PR]()
+- [submission PR](https://github.com/marah-401-advanced-javascript/api-server/pull/3)
 
 ### Setup
 
