@@ -9,6 +9,7 @@
 ### Links and Resources
 
 - [submission swaggerHub](https://app.swaggerhub.com/apis/mrsmarah/lab06/0.1)
+- [submission PR]()
 
 ### Setup
 
@@ -16,12 +17,18 @@
 
 - `PORT` - 3000
 
-#### Running the app
+#### Running the server
 
-- json-server --id=_id --watch ./data/db.json --routes ./data/routes.json
+- nodemon
 
 #### Tests
 
-- Incomplete tests: lint test and other test for the upcoming labs 
+- `npm test`
+- `npm run lint`
+
+#### UML
+
+![UML](/assets/uml.jpg)
+
 
 
