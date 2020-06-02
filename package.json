@@ -21,11 +21,15 @@
   },
   "homepage": "https://github.com/marah-401-advanced-javascript/api-server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mongoose": "^5.9.16",
+    "morgan": "^1.10.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
+    "@code-fellows/supergoose": "^1.0.2",
     "eslint": "^7.1.0",
     "jest": "^26.0.1"
   }
