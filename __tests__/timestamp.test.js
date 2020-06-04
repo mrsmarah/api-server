@@ -1,3 +1,5 @@
+'use strict';
+
 const timeStampMiddleware = require('../middleware/timestamp.js');
 describe('timestamp Middleware', () => {
   const req = {};

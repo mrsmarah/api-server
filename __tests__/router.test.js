@@ -1,10 +1,15 @@
 'use strict';
 
-const { server } = require('../lib/server');
+const express = require('express');
+const server = express();
+
 const supergoose = require('@code-fellows/supergoose');
 const mockRequest = supergoose(server);
 
-jest.spyOn(global.console, 'log');
+const route = require('../routes/main-router.js');
+server.use(express.urlencoded({ extended: false }));
+server.use(express.json());
+server.use(route);
 
 let testObj1 = {
   'name': 'marah',
@@ -16,7 +21,7 @@ let idProducts = null;
 
 describe('categories.js', () => {
 
-  it('1/ should respond 500 error /wrong', () => {
+  it('1/ should respond error /wrong', () => {
     return mockRequest
       .get('/wrong')
       .then(results => {
@@ -24,7 +29,7 @@ describe('categories.js', () => {
       });
   });
 
-  it('2/ should respond 200 get /categories', () => {
+  it('2/ should respond properly get /categories', () => {
     return mockRequest
       .get('/categories')
       .then(results => {
@@ -32,7 +37,7 @@ describe('categories.js', () => {
       });
   });
 
-  it('3/ should respond 200 post /categories', () => {
+  it('3/ should post properly /categories', () => {
     // let testObj = { 'name': 'test name 1', 'description': 'test test 1 ' };
     return mockRequest
       .post('/categories')
@@ -46,7 +51,7 @@ describe('categories.js', () => {
       });
   });
 
-  it('4/ should respond 200 get /categories/:id', () => {
+  it('4/ should respond properly /categories/:id', () => {
     return mockRequest
       .get(`/categories/${idCategory}`)
       .then(results => {
@@ -54,7 +59,7 @@ describe('categories.js', () => {
       });
   });
 
-  it('5/ should respond 200 put /categories/:id', () => {
+  it('5/ should PUT properly /categories/:id', () => {
     // let testObj = { 'name': 'test name 1 updated', description: 'test test 1 updated ' };
     return mockRequest
       .put(`/categories/${idCategory}`, testObj1)
@@ -67,7 +72,7 @@ describe('categories.js', () => {
       });
   });
 
-  it('6/ should respond 200 delete /categories/:id', () => {
+  it('6/ should DELETE properly /categories/:id', () => {
     return mockRequest
       .delete(`/categories/${idCategory}`)
       .then(results => {
@@ -77,7 +82,7 @@ describe('categories.js', () => {
 
 
 
-  it('7/ should respond 200 post /products', () => {
+  it('7/ should post properly /products', () => {
     let testObj = { name: 'test 1', category: 'test cat', description: 'test test 1 ', display_name: 'mmm' };
     return mockRequest
       .post('/products')
@@ -93,7 +98,7 @@ describe('categories.js', () => {
 
   describe('products.js', () => {
 
-    it('8/should respond 200 get /products', () => {
+    it('8/ should respond properly /products', () => {
       return mockRequest
         .get('/products')
         .then(results => {
@@ -101,7 +106,7 @@ describe('categories.js', () => {
         });
     });
 
-    it('9/ should respond 200 get /products/:id', () => {
+    it('9/ should respond properly to get /products/:id', () => {
       return mockRequest
         .get(`/products/${idProducts}`)
         .then(results => {
@@ -109,7 +114,7 @@ describe('categories.js', () => {
         });
     });
 
-    it('10/ should respond 200 put /products/:id', () => {
+    it('10/ should PUT properly /products/:id', () => {
       let updateTestObj = { name: 'test 4 updated', category: 'test cat', description: 'test test 4 updated', display_name: 'mmm' };
       return mockRequest
         .put(`/products/${idProducts}`)
@@ -120,7 +125,7 @@ describe('categories.js', () => {
     });
 
 
-    it('11/should respond 200 delete /products/:id', () => {
+    it('11/ should DELETE properly /products/:id', () => {
       return mockRequest
         .delete(`/products/${idProducts}`)
         .then(results => {
