@@ -33,7 +33,6 @@ describe('categories.js', () => {
   });
 
   it('3/ should respond 200 post /categories', () => {
-    // let testObj = { 'name': 'test name 1', 'description': 'test test 1 ' };
     return mockRequest
       .post('/categories')
       .send(testObj1)

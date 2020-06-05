@@ -1,32 +1,63 @@
 'use strict';
 const express = require('express');
-const productsModel = require('../lib/models/products-collection.js');
-const categoriesModel = require('../lib/models/categories-collection.js');
 const router = express.Router();
+const getModel = require('../middleware/params.js');
 
 router.param('model', getModel);
-function getModel(req, res, next) {
-  const model = req.params.model; 
-  switch (model) {
-  case 'categories':
-    req.model = categoriesModel;
-    next();
-    return;
-  case 'products':
-    req.model = productsModel;
-    next();
-    return;
-  default:
-    next('invalid model');
-    return;
-  }
-}
 
 router.post('/:model', postHandler);
 router.get('/:model', getAllHandler);
 router.get('/:model/:_id', getOneHandler);
 router.put('/:model/:_id', updateHandler);
 router.delete('/:model/:_id', deleteHandler);
+
+
+/**
+ * Main router module which will get the models from the params to get,post,put,delete .
+ * @module router
+ */
+
+/**
+ * Get all function
+ * @param   req
+ * @param   res
+ * @param   next
+ * @function getAllhandler
+ */
+
+/** 
+ *  * Get one by ID function
+ * @param   req
+ * @param   res
+ * @param   next
+ * @function getOneHandler
+ */
+
+/** 
+ *  * Post function
+ * @param   req
+ * @param   res
+ * @param   next
+ * @function postHandler
+ */
+
+/** 
+ *  * Update by ID function
+ * @param   req
+ * @param   res
+ * @param   next
+ * @function updateHandler
+ */
+
+/** 
+ *  * Delete by ID function
+ * @param   req
+ * @param   res
+ * @param   next
+ * @function deleteHandler
+ */
+
+
 
 
 function postHandler(req, res, next) {

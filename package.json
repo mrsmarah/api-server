@@ -7,7 +7,9 @@
     "start": "node index.js",
     "lint": "eslint '**/*.js'",
     "dev": "nodemon",
-    "test": "jest --coverage --verbose"
+    "test": "jest --coverage --verbose",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
+    "test-watch": "jest --watchAll --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsdoc": "^3.6.4",
     "mongoose": "^5.9.16",
     "morgan": "^1.10.0",
     "supertest": "^4.0.2"

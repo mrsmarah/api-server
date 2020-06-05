@@ -38,7 +38,6 @@ describe('categories.js', () => {
   });
 
   it('3/ should post properly /categories', () => {
-    // let testObj = { 'name': 'test name 1', 'description': 'test test 1 ' };
     return mockRequest
       .post('/categories')
       .send(testObj1)
@@ -60,7 +59,6 @@ describe('categories.js', () => {
   });
 
   it('5/ should PUT properly /categories/:id', () => {
-    // let testObj = { 'name': 'test name 1 updated', description: 'test test 1 updated ' };
     return mockRequest
       .put(`/categories/${idCategory}`, testObj1)
       .send(testObj1)
