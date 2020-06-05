@@ -1,4 +1,4 @@
-const loggerMiddleware = require('../middleware/logger.js');
+const loggerMiddleware = require('../../middleware/logger.js');
 describe('logger Middleware', () => {
   let consoleSpy;
   const req = {};
